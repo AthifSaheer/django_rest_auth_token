@@ -15,7 +15,7 @@ class registration(APIView):
             data['response'] = 'registered'
             data['username'] = account.username
             data['email'] = account.email
-            token, create = Token.objects.get_or_create(user=account).key
+            token, create = Token.objects.get_or_create(user=account)
             data['token'] = token.key
         else:
             data = serializer.errors
